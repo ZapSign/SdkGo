@@ -1,19 +1,18 @@
-package main
+package tests
 
 import (
 	"testing"
 
 	"github.com/ZapSign/SdkGo/controllers"
 	"github.com/ZapSign/SdkGo/models"
+	"github.com/ZapSign/SdkGo/utils"
 )
 
-// go test -v -run TestShouldCreateDocFromUploadAsync
-
-const apiToken = "b1c75fcf-96d5-4951-b084-36870d2dde22d984198b-6186-4ac8-8135-bf3e586f0a34"
-const apiRoute = "http://localhost:3001/api/v1/"
+//RUN FOLDER TESTS: go test -v ./tests/docs
+//RUN UNIT TEST: go test -v -run TestShouldCreateADocFromAUploudPdf
 
 func TestShouldCreateADocFromAUploudPdf(t *testing.T) {
-	const apiPath = apiRoute + "docs/"
+	var apiPath = utils.GetApiRoute() + "docs/"
 
 	signersMock := []models.Signer{
         {
@@ -29,7 +28,7 @@ func TestShouldCreateADocFromAUploudPdf(t *testing.T) {
 			Auth_mode:"assinaturaTela",
 			Send_automatic_email: false,
 			Send_automatic_whatsapp: true,
-		},	
+		},
 	}
 
 	docMock := models.Doc{
@@ -41,12 +40,11 @@ func TestShouldCreateADocFromAUploudPdf(t *testing.T) {
 		Signers: signersMock,
 	}
 
-	controllers.PostRequest(docMock,apiToken,apiPath)
+	controllers.PostRequest(docMock,utils.GetApiToken(),apiPath)
 }
-
 func TestShouldCreateADocFromAUploudDocx(t *testing.T) {
-	const apiPath = apiRoute + "docs/"
-	
+	var apiPath = utils.GetApiRoute() + "docs/"
+
 	signersMock := []models.Signer{
         {
             Name: "My First Signer",
@@ -61,7 +59,7 @@ func TestShouldCreateADocFromAUploudDocx(t *testing.T) {
 			Auth_mode:"assinaturaTela",
 			Send_automatic_email: false,
 			Send_automatic_whatsapp: true,
-		},	
+		},
 	}
 
 	docMock := models.Doc{
@@ -73,11 +71,11 @@ func TestShouldCreateADocFromAUploudDocx(t *testing.T) {
 		Signers: signersMock,
 	}
 
-	controllers.PostRequest(docMock,apiToken,apiPath)
+	controllers.PostRequest(docMock,utils.GetApiToken(),apiPath)
 }
 
 func TestShouldCreateDocFromUploadAsync(t *testing.T) {
-	const apiPath = apiRoute + "docs/async/"
+	var apiPath = utils.GetApiRoute() + "docs/async/"
 
 	signersMock := []models.Signer{
         {
@@ -93,7 +91,7 @@ func TestShouldCreateDocFromUploadAsync(t *testing.T) {
 			Auth_mode:"assinaturaTela",
 			Send_automatic_email: false,
 			Send_automatic_whatsapp: true,
-		},	
+		},
 	}
 
 	docMock := models.Doc{
@@ -105,11 +103,11 @@ func TestShouldCreateDocFromUploadAsync(t *testing.T) {
 		Signers: signersMock,
 	}
 
-	controllers.PostRequest(docMock,apiToken,apiPath)
+	controllers.PostRequest(docMock,utils.GetApiToken(),apiPath)
 }
 
 func TestShouldCreateDocFromTemplate(t *testing.T) {
-	const apiPath = apiRoute + "models/create-doc/"
+	var apiPath = utils.GetApiRoute() + "models/create-doc/"
 
 	deparatemplateMock := []models.DeParaTemplate {
 		{
@@ -135,11 +133,11 @@ func TestShouldCreateDocFromTemplate(t *testing.T) {
 			Deparafromtemplate: deparatemplateMock,
 	}
 
-	controllers.PostRequest(docfromtemplateMock,apiToken,apiPath)
+	controllers.PostRequest(docfromtemplateMock,utils.GetApiToken(),apiPath)
 }
 
 func TestShouldCreateDocFromTemplateAsync(t *testing.T) {
-	const apiPath = apiRoute + "models/create-doc/async/"
+	var apiPath = utils.GetApiRoute() + "models/create-doc/async/"
 
 	deparatemplateMock := []models.DeParaTemplate {
 		{
@@ -165,12 +163,11 @@ func TestShouldCreateDocFromTemplateAsync(t *testing.T) {
 			Deparafromtemplate: deparatemplateMock,
 	}
 
-	controllers.PostRequest(docfromtemplateMock,apiToken,apiPath)
+	controllers.PostRequest(docfromtemplateMock,utils.GetApiToken(),apiPath)
 }
 
 func TestShouldCreateAExtraDoc(t *testing.T) {
-	const docToken = "2e3e805e-708e-433e-bf2e-2105d59d76f9"
-	const apiPath = apiRoute + "docs/"+ docToken + "/upload-extra-doc/"
+	var apiPath = utils.GetApiRoute() + "docs/"+ utils.GetDocToken() + "/upload-extra-doc/"
 
 	extradoc := models.ExtraDoc {
 		Name: "Anexo ao Contrato de Admissão João",
@@ -186,33 +183,29 @@ func TestShouldCreateAExtraDoc(t *testing.T) {
 		DAgMDAwMDAgbiAKdHJhaWxlcgo8PAogIC9TaXplIDYKICAvUm9vdCAxIDAgUgo+PgpzdGFydHhyZWYKNDkyCiUlRU9G",`,
 	}
 
-	controllers.PostRequest(extradoc,apiToken,apiPath)
+	controllers.PostRequest(extradoc,utils.GetApiToken(),apiPath)
 }
 
 func TestShouldGetDetailsDocument(t *testing.T) {
-	const docToken = "2e3e805e-708e-433e-bf2e-2105d59d76f9"
-	const apiPath = apiRoute + "docs/" + docToken + "/"
-
-	controllers.GetRequest(apiToken,apiPath)
+	var apiPath = utils.GetApiRoute() + "docs/" + utils.GetDocToken() + "/"
+	controllers.GetRequest(utils.GetApiToken(),apiPath)
 }
 
 func TestShouldGetAllDocuments(t *testing.T) {
-	const apiPath = apiRoute + "docs/"
+	var apiPath = utils.GetApiRoute() + "docs/"
 
-	controllers.GetRequest(apiToken,apiPath)
+	controllers.GetRequest(utils.GetApiToken(),apiPath)
 }
 
 func TestShouldDeleteDocument(t *testing.T) {
-	const docToken = "dbbfae2b-617d-4443-b3cb-eff626bca499"
-	const apiPath = apiRoute + "docs/" + docToken + "/"
-	
-	controllers.DeleteRequest(apiToken,apiPath)
+	var apiPath = utils.GetApiRoute() + "docs/" + utils.GetDocToken() + "/"
+
+	controllers.DeleteRequest(utils.GetApiToken(),apiPath)
 }
 
 func TestShouldPlaceSignatures(t *testing.T) {
-	const docToken = "14f88fc1-8eb5-4bcd-83a6-340dc4a59a7f"
-	const apiPath = apiRoute + "docs/" + docToken + "/place-signatures/"
-	
+	var apiPath = utils.GetApiRoute() + "docs/" + utils.GetDocToken() + "/place-signatures/"
+
 	rubricasMock := []models.Rubricas{
         {
             Page: 0,
@@ -234,70 +227,5 @@ func TestShouldPlaceSignatures(t *testing.T) {
         },
 	}
 
-	controllers.PostRequest(rubricasMock, apiToken, apiPath)
+	controllers.PostRequest(rubricasMock, utils.GetApiToken(), apiPath)
 }
-
-func TestShouldDetailSigner(t *testing.T) {
-	const signerToken = "8ce2bcf4-731d-41e5-9c4c-7fe0bdba8a5b"
-	const apiPath = apiRoute + "signers/" + signerToken
-
-	controllers.GetRequest(apiToken, apiPath)
-}
-
-func TestShouldUpdateSigner(t *testing.T) {
-	const signerToken = "8ce2bcf4-731d-41e5-9c4c-7fe0bdba8a5b"
-	const apiPath = apiRoute + "signers/" + signerToken + "/"
-
-	signerMock := models.Signer {
-		Name: "New Name",
-		Email: "newEmail@test.com",
-		Lock_email: true,
-		Lock_phone: true,
-		Phone_country: "55",
-		Phone_number: "99999999999",
-		Auth_mode: "assinaturaTela",
-		Send_automatic_email: false,
-		Send_automatic_whatsapp: false,
-	}
-	controllers.PostRequest(signerMock,apiToken, apiPath)
-}
-
-func TestShouldAddSigner(t *testing.T) {
-	const docToken = "14f88fc1-8eb5-4bcd-83a6-340dc4a59a7f"
-	const apiPath = apiRoute + "docs/" + docToken + "/add-signer/"
-
-	signerMock := models.Signer {
-		Name: "New Name",
-		Email: "newEmail@test.com",
-		Lock_email: true,
-		Lock_phone: true,
-		Phone_country: "55",
-		Phone_number: "99999999999",
-		Auth_mode: "assinaturaTela",
-		Send_automatic_email: false,
-		Send_automatic_whatsapp: false,
-	}
-
-	controllers.PostRequest(signerMock,apiToken, apiPath)
-}
-
-func TestShouldDeleteSigner(t *testing.T){
-	const docToken = "be01b056-be92-4aac-9061-fe3b07d6d33c"
-	const apiPath = apiRoute + "signer/" + docToken + "/remove/"
-
-	controllers.DeleteRequest(apiToken, apiPath)
-}
-
-func TestShouldSignInBatch(t *testing.T){
-	const docToken = `"{
-		"user_token": "23d4d2d5-8998-4516-b2f8-6045c4eabc9d", 
-		"signer_tokens":[
-		"3c8f16f8-949b-432a-adea-d1e544bb91be",
-		"fed91ab3-bb69-46f9-8c2d-9594772b1186"
-		]
-	}"`
-	const apiPath = apiRoute + "sign/"
-
-	controllers.PostRequest(docToken,apiToken, apiPath)
-}
-
