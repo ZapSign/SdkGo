@@ -9,7 +9,7 @@ import (
 )
 
 //RUN FOLDER TESTS: go test -v ./tests/signers
-//RUN UNIT TEST: go test -v -run TestShouldCreateDocFromUploadAsync
+//RUN UNIT TEST: go test -run TestShouldCreateDocFromUploadAsync ./tests/docs/ -v
 
 func TestShouldDetailSigner(t *testing.T) {
 	var apiPath = utils.GetApiRoute() + "signers/" + utils.GetSignerToken()

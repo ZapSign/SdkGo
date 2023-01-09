@@ -9,7 +9,7 @@ import (
 )
 
 //RUN FOLDER TESTS: go test -v ./tests/docs
-//RUN UNIT TEST: go test -v -run TestShouldCreateADocFromAUploudPdf
+//RUN UNIT TEST: go test -run TestShouldCreateDocFromUploadAsync ./tests/docs/ -v
 
 func TestShouldCreateADocFromAUploudPdf(t *testing.T) {
 	var apiPath = utils.GetApiRoute() + "docs/"
