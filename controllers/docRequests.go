@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"fmt"
+	"log"
 	"net/http"
 	"strings"
 
@@ -9,45 +9,27 @@ import (
 	"github.com/ZapSign/SdkGo/utils"
 )
 
-func PostRequest(docMock interface{}, apiToken string, apiRoute string)  {
-  payload := utils.ConvertObjectToJSON(docMock)
+func PostRequest(docMock interface{}, apiToken string, apiRoute string) (int, string) {
+	payload := utils.ConvertObjectToJSON(docMock)
 
-  req, err := http.NewRequest("POST", apiRoute, strings.NewReader(payload))
+	req, error := http.NewRequest("POST", apiRoute, strings.NewReader(payload))
 
-  fmt.Println(apiRoute)
-  fmt.Println(payload)
+	if error != nil {
+		log.Fatal(error)
+	}
 
+	utils.AddHeadersFromRequest(req)
+	utils.AddQueryParamsToRequest(req)
+
+	client := &http.Client{}
+	resp, err := client.Do(req)
 	if err != nil {
-		fmt.Println(err)
-		return
+		log.Fatalln(err)
 	}
 
-  services.ProcessRequestToAPI(req,apiToken)
+	defer resp.Body.Close()
+
+	statusCode, body := services.ReadStatusCodeAndBodyRequest(resp)
+
+	return statusCode, body
 }
-
-func GetRequest(apiToken string, apiRoute string)  {
-  req, err := http.NewRequest("GET", apiRoute, nil)
-
-  if err != nil {
-		fmt.Println(err)
-		return
-	}
-
-  services.ProcessRequestToAPI(req,apiToken)
-}
-
-
-func DeleteRequest(apiToken string, apiRoute string)  {
-  req, err := http.NewRequest("DELETE", apiRoute, nil)
-
-  if err != nil {
-		fmt.Println(err)
-		return
-	}
-
-  services.ProcessRequestToAPI(req,apiToken)
-}
-
-
-
-

@@ -14,21 +14,21 @@ func ConvertObjectToJSON(dockTemplate interface{}) string {
 }
 
 func GetApiToken() string {
-	const apiToken = "b1c75fcf-96d5-4951-b084-36870d2dde22d984198b-6186-4ac8-8135-bf3e586f0a34"
-	return apiToken
+	return "add8fb64-827c-49a5-a489-48959a5f9bbfece49a7b-02b0-4d82-b84b-e7f0c83aa46a"
 }
 
 func GetApiRoute() string {
-	const apiRoute = "http://localhost:3001/api/v1/"
-	return apiRoute
+	return "http://localhost:3001/api/v1/"
 }
 
 func GetSignerToken() string {
-	const signerToken = "8ce2bcf4-731d-41e5-9c4c-7fe0bdba8a5b"
-	return signerToken
+	return "8ce2bcf4-731d-41e5-9c4c-7fe0bdba8a5b"
 }
 
 func GetDocToken() string {
-	const docToken = "dbbfae2b-617d-4443-b3cb-eff626bca499"
-	return docToken
+	return "3f51f0af-ddca-478c-a762-0c9d24148bbe"
+}
+
+func getBearerToken() string {
+	return "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjczNDU1NzE0LCJqdGkiOiIwZjEyMmI3ZDZlZjg0N2QzYWUzNDE1MWUxM2UyOTM1YSIsInVzZXJfaWQiOjF9.xhUn0Ak0ZWJ-H5gWW_ZFMVUCjkcTZU0SrGkoJgunQ-U"
 }
