@@ -14,7 +14,7 @@ func ConvertObjectToJSON(dockTemplate interface{}) string {
 }
 
 func GetApiToken() string {
-	return "add8fb64-827c-49a5-a489-48959a5f9bbfece49a7b-02b0-4d82-b84b-e7f0c83aa46a"
+	return "c5d61c24-18b5-4665-82e3-1683d18ef9b5b5ae6c12-9e45-4e97-ab5a-1c7cfd71c7d5"
 }
 
 func GetApiRoute() string {
@@ -26,9 +26,9 @@ func GetSignerToken() string {
 }
 
 func GetDocToken() string {
-	return "3f51f0af-ddca-478c-a762-0c9d24148bbe"
+	return "5b5a3045-9f48-4042-a995-ecdcfb3326ab"
 }
 
 func getBearerToken() string {
-	return "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjczNDU1NzE0LCJqdGkiOiIwZjEyMmI3ZDZlZjg0N2QzYWUzNDE1MWUxM2UyOTM1YSIsInVzZXJfaWQiOjF9.xhUn0Ak0ZWJ-H5gWW_ZFMVUCjkcTZU0SrGkoJgunQ-U"
+	return "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjczNTQ0OTc4LCJqdGkiOiI0YjA3MGY0MmVjNTk0Mjg3YjQ5NDExOTRjODU4ODZkNiIsInVzZXJfaWQiOjF9.RavdinhpjSSSwnjuGHGP26cqNK33OuhYhzff893EZQ4"
 }

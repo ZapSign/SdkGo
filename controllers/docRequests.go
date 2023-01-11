@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"strings"
@@ -21,6 +22,7 @@ func PostRequest(docMock interface{}, apiToken string, apiRoute string) (int, st
 	utils.AddHeadersFromRequest(req)
 	utils.AddQueryParamsToRequest(req)
 
+	fmt.Println(req.URL.String())
 	client := &http.Client{}
 	resp, err := client.Do(req)
 	if err != nil {
@@ -30,6 +32,5 @@ func PostRequest(docMock interface{}, apiToken string, apiRoute string) (int, st
 	defer resp.Body.Close()
 
 	statusCode, body := services.ReadStatusCodeAndBodyRequest(resp)
-
 	return statusCode, body
 }
