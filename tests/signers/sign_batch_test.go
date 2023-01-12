@@ -10,7 +10,8 @@ import (
 )
 
 func TestShouldSignInBatch(t *testing.T) {
-	var apiPath = utils.GetApiRoute() + "sign/"
+	var apiSignBatchPath = utils.GetApiRoute() + "sign/"
+	var getAPIToken = utils.GetApiToken()
 
 	const signBatchMock = `"{
 
@@ -23,7 +24,7 @@ func TestShouldSignInBatch(t *testing.T) {
 
 	mockResponse := `{"message":"Documento(s) assinado(s) com sucesso. Lembrete: este endpoint é assíncrono, então aguarde os PDF finais ficarem prontos via webhooks ou confira-os daqui alguns minutos."}`
 	responseRecorderStatusCode := httptest.NewRecorder().Code
-	statusCode, body := controllers.PostRequest(signBatchMock, utils.GetApiToken(), apiPath)
+	statusCode, body := controllers.PostRequest(signBatchMock, getAPIToken, apiSignBatchPath)
 
 	assert.Equal(t, statusCode, responseRecorderStatusCode)
 	assert.Equal(t, mockResponse, string(body))

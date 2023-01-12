@@ -11,7 +11,8 @@ import (
 )
 
 func TestShouldStatus200WhenUpdateSignerFromDoc(t *testing.T) {
-	var apiPath = utils.GetApiRoute() + "signers/" + utils.GetSignerToken() + "/"
+	var apiUpdateSignerPath = utils.GetApiRoute() + "signers/" + utils.GetSignerToken() + "/"
+	var getAPIToken = utils.GetApiToken()
 
 	signerMock := models.Signer{
 		Lock_email: false,
@@ -19,7 +20,7 @@ func TestShouldStatus200WhenUpdateSignerFromDoc(t *testing.T) {
 		Name:       "Jhon Doe",
 	}
 	responseRecorderStatusCode := httptest.NewRecorder().Code
-	statusCode, _ := controllers.PostRequest(signerMock, utils.GetApiToken(), apiPath)
+	statusCode, _ := controllers.PostRequest(signerMock, getAPIToken, apiUpdateSignerPath)
 
 	assert.Equal(t, statusCode, responseRecorderStatusCode)
 }

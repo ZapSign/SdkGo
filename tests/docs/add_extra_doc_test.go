@@ -11,7 +11,8 @@ import (
 )
 
 func TestShouldStatus200WhenCreateExtraDoc(t *testing.T) {
-	var apiPath = utils.GetApiRoute() + "docs/" + utils.GetDocToken() + "/upload-extra-doc/"
+	var apiPath = utils.GetDocsRoute() + utils.GetDocToken() + "/upload-extra-doc/"
+	var getAPIToken = utils.GetApiToken()
 
 	extraDoc := models.ExtraDoc{
 		Name: "Anexo ao Contrato de Admissão João",
@@ -27,7 +28,7 @@ func TestShouldStatus200WhenCreateExtraDoc(t *testing.T) {
 		DAgMDAwMDAgbiAKdHJhaWxlcgo8PAogIC9TaXplIDYKICAvUm9vdCAxIDAgUgo+PgpzdGFydHhyZWYKNDkyCiUlRU9G",`,
 	}
 
-	statusCodeRequest, _ := controllers.PostRequest(extraDoc, utils.GetApiToken(), apiPath)
+	statusCodeRequest, _ := controllers.PostRequest(extraDoc, getAPIToken, apiPath)
 	responseRecorderStatusCode := httptest.NewRecorder().Code
 	assert.Equal(t, statusCodeRequest, responseRecorderStatusCode)
 }

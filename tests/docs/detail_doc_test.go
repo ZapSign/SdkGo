@@ -10,9 +10,10 @@ import (
 )
 
 func TestShouldHaveStatus200WhenWantDetailsOfDocument(t *testing.T) {
-	var apiRoute = utils.GetApiRoute() + "docs/" + utils.GetDocToken()
+	var apiDetailDocumentPath = utils.GetDocsRoute() + utils.GetDocToken()
 
 	responseRecorderStatusCode := httptest.NewRecorder().Code
-	statusCodeRequest, _ := controllers.GetRequest(apiRoute)
+	statusCodeRequest, _ := controllers.GetRequest(apiDetailDocumentPath)
+
 	assert.Equal(t, statusCodeRequest, responseRecorderStatusCode)
 }

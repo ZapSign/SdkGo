@@ -9,11 +9,11 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestDeleteDoc(t *testing.T) {
-	var apiRoute = utils.GetApiRoute() + "docs/" + utils.GetDocTokenThatWillBeDeleted()
+func TestShouldHaveStatus200WhenWantDeleteDoc(t *testing.T) {
+	var apiDeleteDocumentPath = utils.GetDocsRoute() + utils.GetDocTokenThatWillBeDeleted()
 
 	responseRecorderStatusCode := httptest.NewRecorder().Code
-	statusCodeRequest, _ := controllers.GetRequest(apiRoute)
+	statusCodeRequest, _ := controllers.GetRequest(apiDeleteDocumentPath)
 
 	assert.Equal(t, statusCodeRequest, responseRecorderStatusCode)
 }

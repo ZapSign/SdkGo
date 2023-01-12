@@ -10,12 +10,13 @@ import (
 )
 
 func TestShouldStatus200WhenRemoveSignerFromDoc(t *testing.T) {
-	var apiPath = utils.GetApiRoute() + "signer/" + utils.GetSignerTokenThatWillBeDeleted() + "/remove/"
+	var apiDeleteSignerPath = utils.GetApiRoute() + "signer/" + utils.GetSignerTokenThatWillBeDeleted() + "/remove/"
+	var getAPIToken = utils.GetApiToken()
 
 	mockResponse := "Signatário removido com sucesso."
 
 	responseRecorderStatusCode := httptest.NewRecorder().Code
-	statusCode, body := controllers.DeleteRequest(utils.GetApiToken(), apiPath)
+	statusCode, body := controllers.DeleteRequest(getAPIToken, apiDeleteSignerPath)
 
 	assert.Equal(t, statusCode, responseRecorderStatusCode)
 	assert.Equal(t, mockResponse, string(body))

@@ -11,7 +11,8 @@ import (
 )
 
 func TestShouldStatus200WhenCreateDocumentFromTemplate(t *testing.T) {
-	var apiPath = utils.GetApiRoute() + "models/create-doc/"
+	var apiCreateTemplatePath = utils.GetApiRoute() + "models/create-doc/"
+	var getAPIToken = utils.GetApiToken()
 
 	deParaTemplateMock := []models.DeParaTemplate{
 		{
@@ -29,7 +30,7 @@ func TestShouldStatus200WhenCreateDocumentFromTemplate(t *testing.T) {
 	}
 	docFromTemplateMock := models.DocFromTemplate{
 		Sandbox:             true,
-		Template_id:         "778e4a2e-be65-4dc1-911d-57de6e3ffde0",
+		Template_id:         "02f9d72b-6da7-466a-a3c2-3669b6d1f8a8",
 		Signer_name:         "João dos Santos",
 		External_id:         "123",
 		Brand_primary_color: "#000000",
@@ -37,7 +38,7 @@ func TestShouldStatus200WhenCreateDocumentFromTemplate(t *testing.T) {
 		Deparafromtemplate:  deParaTemplateMock,
 	}
 
-	statusCodeRequest, _ := controllers.PostRequest(docFromTemplateMock, utils.GetApiToken(), apiPath)
+	statusCodeRequest, _ := controllers.PostRequest(docFromTemplateMock, getAPIToken, apiCreateTemplatePath)
 	responseRecorderStatusCode := httptest.NewRecorder().Code
 	assert.Equal(t, statusCodeRequest, responseRecorderStatusCode)
 }

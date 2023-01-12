@@ -11,7 +11,8 @@ import (
 )
 
 func TestShouldStatus200AddSignerFromDoc(t *testing.T) {
-	var apiPath = utils.GetApiRoute() + "docs/" + utils.GetDocToken() + "/add-signer/"
+	var apiPath = utils.GetDocsRoute() + utils.GetDocToken() + "/add-signer/"
+	var getAPIToken = utils.GetApiToken()
 
 	signerMock := models.Signer{
 		Name:                    "Novinho",
@@ -25,6 +26,6 @@ func TestShouldStatus200AddSignerFromDoc(t *testing.T) {
 		Send_automatic_whatsapp: false,
 	}
 	responseRecorderStatusCode := httptest.NewRecorder().Code
-	statusCode, _ := controllers.PostRequest(signerMock, utils.GetApiToken(), apiPath)
+	statusCode, _ := controllers.PostRequest(signerMock, getAPIToken, apiPath)
 	assert.Equal(t, statusCode, responseRecorderStatusCode)
 }

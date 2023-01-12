@@ -31,14 +31,14 @@ func GetDocToken() string {
 
 // Use when you want to test a document token for deletion
 func GetDocTokenThatWillBeDeleted() string {
-	return "4e5130c7-f3d4-44cd-97fe-c4ae8480e156"
+	return "8c9e3294-8bde-4bdb-bea2-41da2fac0a2c"
 }
 
 // Use when you want to test a signer token for deletion
 func GetSignerTokenThatWillBeDeleted() string {
-	return "5fd1e947-ff99-4e3c-928e-1a84dd4f301f"
+	return "c5d60a4e-4ee6-4ba6-b934-7e78ce78d778"
 }
 
 func getBearerToken() string {
-	return "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjczNjI1NTAzLCJqdGkiOiI2OGQwODQwODkyNmE0YjVlYTRjMjBjOWM5ZGE4ZGJiOSIsInVzZXJfaWQiOjF9.TriGJGxWC2YWOA2mT_MYkQ2Inn0iDYQdLVKhPlDf7g4"
+	return "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjczNjI4NDAzLCJqdGkiOiJiYzdhZDc1ZmJiNDM0YzAxOGFlNjA0ZmE4MGFiZjliOCIsInVzZXJfaWQiOjF9.XEBHyceqBTNgCC-kWiE4zG5ZNvsUq4RSdRpHkfOabr0"
 }

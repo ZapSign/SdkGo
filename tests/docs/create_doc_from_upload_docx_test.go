@@ -11,7 +11,8 @@ import (
 )
 
 func TestShouldStatus200WhenCreateDocumentWithDocxFile(t *testing.T) {
-	var apiPath = utils.GetApiRoute() + "docs/"
+	var apiDocsRoutePath = utils.GetDocsRoute()
+	var getAPIToken = utils.GetApiToken()
 
 	signersMock := []models.Signer{
 		{
@@ -28,7 +29,7 @@ func TestShouldStatus200WhenCreateDocumentWithDocxFile(t *testing.T) {
 
 	docMock := models.Doc{
 		Sandbox:             true,
-		Name:                "My Contract Golang",
+		Name:                "Golang Example",
 		Url_pdf:             "https://zapsign.s3.amazonaws.com/2022/1/docs/d7660fd2-fe74-4691-bec8-5c42c0ae2b3f/39a35070-8987-476d-86e3-75d91f588a5a.docx",
 		Brand_primary_color: "#000000",
 		Lang:                "pt-br",
@@ -36,6 +37,6 @@ func TestShouldStatus200WhenCreateDocumentWithDocxFile(t *testing.T) {
 	}
 
 	responseRecorderStatusCode := httptest.NewRecorder()
-	statusCodeRequest, _ := controllers.PostRequest(docMock, utils.GetApiToken(), apiPath)
+	statusCodeRequest, _ := controllers.PostRequest(docMock, getAPIToken, apiDocsRoutePath)
 	assert.Equal(t, statusCodeRequest, responseRecorderStatusCode.Code)
 }

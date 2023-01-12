@@ -11,11 +11,12 @@ import (
 )
 
 func TestShouldStatus200WhenCreateDocumentWithPdfFile(t *testing.T) {
-	var apiPath = utils.GetApiRoute() + "docs/"
+	var docsRoutePath = utils.GetDocsRoute()
+	var getAPIToken = utils.GetApiToken()
 
 	signersMock := []models.Signer{
 		{
-			Name:                    "João Carlos",
+			Name:                    "João Mateus",
 			Email:                   "test@test.com",
 			Auth_mode:               "assinaturaTela",
 			Send_automatic_email:    false,
@@ -36,7 +37,7 @@ func TestShouldStatus200WhenCreateDocumentWithPdfFile(t *testing.T) {
 	}
 
 	responseRecorderStatusCode := httptest.NewRecorder().Code
-	statusCodeRequest, _ := controllers.PostRequest(docMock, utils.GetApiToken(), apiPath)
+	statusCodeRequest, _ := controllers.PostRequest(docMock, getAPIToken, docsRoutePath)
 
 	assert.Equal(t, statusCodeRequest, responseRecorderStatusCode)
 }
