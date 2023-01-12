@@ -14,7 +14,7 @@ func ConvertObjectToJSON(dockTemplate interface{}) string {
 }
 
 func GetApiToken() string {
-	return "c5d61c24-18b5-4665-82e3-1683d18ef9b5b5ae6c12-9e45-4e97-ab5a-1c7cfd71c7d5"
+	return "862f2b2c-84d3-4162-a2ab-2970e0e68668e81b45c4-8205-4ad1-9fbe-cd23227ce460"
 }
 
 func GetApiRoute() string {
@@ -26,9 +26,14 @@ func GetSignerToken() string {
 }
 
 func GetDocToken() string {
-	return "5b5a3045-9f48-4042-a995-ecdcfb3326ab"
+	return "7ccc795e-3f1b-4d78-a93c-2bd1d97814fd"
+}
+
+// Use when you want to test a document token for deletion
+func GetDocTokenThatWillBeDeleted() string {
+	return "4e5130c7-f3d4-44cd-97fe-c4ae8480e156"
 }
 
 func getBearerToken() string {
-	return "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjczNTQ0OTc4LCJqdGkiOiI0YjA3MGY0MmVjNTk0Mjg3YjQ5NDExOTRjODU4ODZkNiIsInVzZXJfaWQiOjF9.RavdinhpjSSSwnjuGHGP26cqNK33OuhYhzff893EZQ4"
+	return "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjczNTc4MDEwLCJqdGkiOiJhNmFiNzU4OGMyYzc0NmFlYTIwMzhiOGRhZDBkYzI5OCIsInVzZXJfaWQiOjF9.umiPo2uvaYmh58lDeMd2iVQwLa-qrYr63MhYDEOSlD0"
 }

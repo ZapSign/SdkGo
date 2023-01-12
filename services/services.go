@@ -8,7 +8,6 @@ import (
 
 func ReadStatusCodeAndBodyRequest(response *http.Response) (int, string) {
 	body, errorReadBody := ioutil.ReadAll(response.Body)
-
 	if errorReadBody != nil {
 		log.Fatalln(errorReadBody)
 	}

@@ -10,7 +10,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestShouldCreateDocumentWithDocxFile(t *testing.T) {
+func TestShouldStatus200WhenCreateDocumentWithDocxFile(t *testing.T) {
 	var apiPath = utils.GetApiRoute() + "docs/"
 
 	signersMock := []models.Signer{

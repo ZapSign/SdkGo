@@ -10,7 +10,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestShouldCreateDocumentWithPdfFile(t *testing.T) {
+func TestShouldStatus200WhenCreateDocumentWithPdfFile(t *testing.T) {
 	var apiPath = utils.GetApiRoute() + "docs/"
 
 	signersMock := []models.Signer{
@@ -35,8 +35,8 @@ func TestShouldCreateDocumentWithPdfFile(t *testing.T) {
 		Signers:             signersMock,
 	}
 
-	responseRecorderStatusCode := httptest.NewRecorder()
+	responseRecorderStatusCode := httptest.NewRecorder().Code
 	statusCodeRequest, _ := controllers.PostRequest(docMock, utils.GetApiToken(), apiPath)
 
-	assert.Equal(t, statusCodeRequest, responseRecorderStatusCode.Code)
+	assert.Equal(t, statusCodeRequest, responseRecorderStatusCode)
 }

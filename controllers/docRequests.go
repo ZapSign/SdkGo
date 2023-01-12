@@ -12,19 +12,22 @@ import (
 
 func PostRequest(docMock interface{}, apiToken string, apiRoute string) (int, string) {
 	payload := utils.ConvertObjectToJSON(docMock)
+	fmt.Println(payload)
 
-	req, error := http.NewRequest("POST", apiRoute, strings.NewReader(payload))
+	request, error := http.NewRequest(http.MethodPost, apiRoute, strings.NewReader(payload))
 
 	if error != nil {
-		log.Fatal(error)
+		log.Fatalln(error)
 	}
 
-	utils.AddHeadersFromRequest(req)
-	utils.AddQueryParamsToRequest(req)
+	utils.AddHeadersFromRequest(request)
+	utils.AddQueryParamsToRequest(request)
+	fmt.Println(request.URL.String())
 
-	fmt.Println(req.URL.String())
 	client := &http.Client{}
-	resp, err := client.Do(req)
+	resp, err := client.Do(request)
+
+	fmt.Println(resp)
 	if err != nil {
 		log.Fatalln(err)
 	}
@@ -32,5 +35,42 @@ func PostRequest(docMock interface{}, apiToken string, apiRoute string) (int, st
 	defer resp.Body.Close()
 
 	statusCode, body := services.ReadStatusCodeAndBodyRequest(resp)
+	return statusCode, body
+}
+
+func DeleteRequest(apiToken string, apiRoute string) (int, string) {
+	request, errorRequest := http.NewRequest(http.MethodDelete, apiRoute, nil)
+	utils.AddQueryParamsToRequest(request)
+
+	if errorRequest != nil {
+		log.Fatalln(errorRequest)
+	}
+	client := &http.Client{}
+	resp, err := client.Do(request)
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	statusCode, body := services.ReadStatusCodeAndBodyRequest(resp)
+	return statusCode, body
+}
+
+func GetRequest(apiRoute string) (int, string) {
+	request, errorRequest := http.NewRequest(http.MethodGet, apiRoute, nil)
+
+	if errorRequest != nil {
+		log.Fatalln(errorRequest)
+	}
+
+	utils.AddQueryParamsToRequest(request)
+
+	client := &http.Client{}
+	resp, err := client.Do(request)
+	if err != nil {
+		fmt.Println(errorRequest)
+	}
+
+	statusCode, body := services.ReadStatusCodeAndBodyRequest(resp)
+
 	return statusCode, body
 }

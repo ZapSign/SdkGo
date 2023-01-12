@@ -10,7 +10,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestShouldCreateExtraDoc(t *testing.T) {
+func TestShouldStatus200WhenCreateExtraDoc(t *testing.T) {
 	var apiPath = utils.GetApiRoute() + "docs/" + utils.GetDocToken() + "/upload-extra-doc/"
 
 	extraDoc := models.ExtraDoc{

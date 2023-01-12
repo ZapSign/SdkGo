@@ -10,7 +10,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestShouldCreateDocumentFromTemplate(t *testing.T) {
+func TestShouldStatus200WhenCreateDocumentFromTemplate(t *testing.T) {
 	var apiPath = utils.GetApiRoute() + "models/create-doc/"
 
 	deParaTemplateMock := []models.DeParaTemplate{
@@ -29,7 +29,7 @@ func TestShouldCreateDocumentFromTemplate(t *testing.T) {
 	}
 	docFromTemplateMock := models.DocFromTemplate{
 		Sandbox:             true,
-		Template_id:         "08255c80-4708-4be9-b4c1-9138fd7ecf4f",
+		Template_id:         "778e4a2e-be65-4dc1-911d-57de6e3ffde0",
 		Signer_name:         "João dos Santos",
 		External_id:         "123",
 		Brand_primary_color: "#000000",
