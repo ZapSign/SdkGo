@@ -10,9 +10,28 @@ import (
 	"github.com/ZapSign/SdkGo/utils"
 )
 
+func GetRequest(apiRoute string) (int, string) {
+	request, errorRequest := http.NewRequest(http.MethodGet, apiRoute, nil)
+
+	if errorRequest != nil {
+		log.Fatalln(errorRequest)
+	}
+
+	utils.AddQueryParamsToRequest(request)
+	fmt.Print(request.URL.String())
+
+	client := &http.Client{}
+	resp, err := client.Do(request)
+	if err != nil {
+		fmt.Println(errorRequest)
+	}
+
+	statusCode, body := services.ReadStatusCodeAndBodyRequest(resp)
+
+	return statusCode, body
+}
 func PostRequest(docMock interface{}, apiToken string, apiRoute string) (int, string) {
 	payload := utils.ConvertObjectToJSON(docMock)
-	fmt.Println(payload)
 
 	request, error := http.NewRequest(http.MethodPost, apiRoute, strings.NewReader(payload))
 
@@ -52,25 +71,5 @@ func DeleteRequest(apiToken string, apiRoute string) (int, string) {
 	}
 
 	statusCode, body := services.ReadStatusCodeAndBodyRequest(resp)
-	return statusCode, body
-}
-
-func GetRequest(apiRoute string) (int, string) {
-	request, errorRequest := http.NewRequest(http.MethodGet, apiRoute, nil)
-
-	if errorRequest != nil {
-		log.Fatalln(errorRequest)
-	}
-
-	utils.AddQueryParamsToRequest(request)
-
-	client := &http.Client{}
-	resp, err := client.Do(request)
-	if err != nil {
-		fmt.Println(errorRequest)
-	}
-
-	statusCode, body := services.ReadStatusCodeAndBodyRequest(resp)
-
 	return statusCode, body
 }
