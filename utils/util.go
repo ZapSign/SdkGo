@@ -14,7 +14,7 @@ func ConvertObjectToJSON(dockTemplate interface{}) string {
 }
 
 func GetApiToken() string {
-	return "15247ee5-9080-4c4a-81e1-6ebd0643fe54fa5156ab-7584-4df3-9b99-41c8e0ab1e28"
+	return "f1fddb1d-5d5e-4747-8e50-8ceee841f2ee991b2861-0f6a-4601-97fa-63359b3bbcd2"
 }
 
 func GetApiRoute() string {
@@ -22,11 +22,11 @@ func GetApiRoute() string {
 }
 
 func GetSignerToken() string {
-	return "57cc1429-2064-4a6b-ac47-4cf95372c56a"
+	return "c5d60a4e-4ee6-4ba6-b934-7e78ce78d778"
 }
 
 func GetDocToken() string {
-	return "2d9263e1-abd2-4228-9e12-01677925610b"
+	return "11c380f7-4e0c-4283-b8ae-4ae6da0232f4"
 }
 
 // Use when you want to test a document token for deletion
@@ -36,9 +36,15 @@ func GetDocTokenThatWillBeDeleted() string {
 
 // Use when you want to test a signer token for deletion
 func GetSignerTokenThatWillBeDeleted() string {
+	return "a4d5a4e5-2c08-4f42-9cfc-633fd8d390c5"
+}
+
+// Use when you have only one signer on the document and try to delete
+
+func GetLastSignerTokenThatWillBeDeleted() string {
 	return "c5d60a4e-4ee6-4ba6-b934-7e78ce78d778"
 }
 
 func getBearerToken() string {
-	return "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjczNjI4NDAzLCJqdGkiOiJiYzdhZDc1ZmJiNDM0YzAxOGFlNjA0ZmE4MGFiZjliOCIsInVzZXJfaWQiOjF9.XEBHyceqBTNgCC-kWiE4zG5ZNvsUq4RSdRpHkfOabr0"
+	return "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjczNjM1MDE5LCJqdGkiOiI5NTBkNjRhMDhiOTk0ODAxOTBkOGI4MjJlMzcxNjllMCIsInVzZXJfaWQiOjF9.t2sGGyufcaDgRphgWb74ODIBC6nYKzHlzJzdTi-VsVE"
 }

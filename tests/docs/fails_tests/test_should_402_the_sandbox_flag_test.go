@@ -12,9 +12,8 @@ import (
 
 const statusPaymentRequired = http.StatusPaymentRequired
 
-func TestShould4Status02TheSandboxFlagIsDisabled(t *testing.T) {
-	var apiPath = utils.GetApiRoute() + "docs/"
-
+func TestShould402StatusTheSandboxFlagIsDisabled(t *testing.T) {
+	var apiPath = utils.GetDocsRoute()
 	signersMock := []models.Signer{
 		{
 			Name:                    "My Second Signer",
