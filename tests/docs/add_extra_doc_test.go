@@ -31,4 +31,5 @@ func TestShouldStatus200WhenCreateExtraDoc(t *testing.T) {
 	statusCodeRequest, _ := controllers.PostRequest(extraDoc, getAPIToken, apiPath)
 	responseRecorderStatusCode := httptest.NewRecorder().Code
 	assert.Equal(t, statusCodeRequest, responseRecorderStatusCode)
+
 }

@@ -40,7 +40,6 @@ func GetSignerTokenThatWillBeDeleted() string {
 }
 
 // Use when you have only one signer on the document and try to delete
-
 func GetLastSignerTokenThatWillBeDeleted() string {
 	return "c5d60a4e-4ee6-4ba6-b934-7e78ce78d778"
 }
