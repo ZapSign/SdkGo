@@ -22,7 +22,7 @@ func GetApiRoute() string {
 }
 
 func GetSignerToken() string {
-	return "420222c4-143e-4f45-8e1f-8c99a1140c35"
+	return "7a319e9b-9579-47b0-aa67-4234706a07a3"
 }
 
 func GetDocToken() string {
