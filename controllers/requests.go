@@ -41,12 +41,10 @@ func PostRequest(docMock interface{}, apiToken string, apiRoute string) (int, st
 
 	utils.AddHeadersFromRequest(request)
 	utils.AddQueryParamsToRequest(request)
-	fmt.Println(request.URL.String())
 
 	client := &http.Client{}
 	resp, err := client.Do(request)
 
-	fmt.Println(resp)
 	if err != nil {
 		log.Fatalln(err)
 	}

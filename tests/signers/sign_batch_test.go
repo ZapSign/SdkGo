@@ -15,10 +15,10 @@ func TestShouldSignInBatch(t *testing.T) {
 
 	const signBatchMock = `"{
 
-		"user_token": "bec3dd89-a2d8-4d64-ad5e-86b4b98b8557",
+		"user_token": "98dad7ef-0271-4ed0-a0fe-605e2bd55eb3",
 		"signer_tokens":[
-			"57cc1429-2064-4a6b-ac47-4cf95372c56a",
-			"56097301-86c1-42a8-b48f-bc59d798467c"
+			"7a319e9b-9579-47b0-aa67-4234706a07a3",
+			"0a034962-80cd-4c4e-b27f-2d7e4e76ae5d"
 		]
 	}"`
 

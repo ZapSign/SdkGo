@@ -3,8 +3,6 @@ package utils
 import "net/http"
 
 func AddHeadersFromRequest(req *http.Request) {
-	getBearerToken := getBearerToken()
-	req.Header.Add("Authorization", "Bearer "+getBearerToken)
 	req.Header.Add("Content-Type", "application/json")
 }
 

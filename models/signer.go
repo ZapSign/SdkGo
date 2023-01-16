@@ -1,7 +1,7 @@
 package models
 
 type Signer struct {
-	Name                    string `json:"name"`
+	Name                    string
 	Email                   string `json:"email"`
 	Lock_email              bool   `json:"lock_email"`
 	Lock_phone              bool   `json:"lock_phone"`

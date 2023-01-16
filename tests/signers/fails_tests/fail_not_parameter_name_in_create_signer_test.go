@@ -1,8 +1,6 @@
 package tests
 
 import (
-	"fmt"
-	"net/http/httptest"
 	"testing"
 
 	"github.com/ZapSign/SdkGo/controllers"
@@ -16,15 +14,13 @@ func TestShouldStatus400WhenParameterNameNotExistsInCreateSigner(t *testing.T) {
 	var getAPIToken = utils.GetApiToken()
 
 	mockResponseErrorNotParameterName := "Missing required parameter 'name'."
-	signerMock := models.Signer{
-		Email: "email@test.com",
+	signerMockNotParameterName := models.Signer{
+		Email: "test@test.com",
 	}
 
-	responseRecorderStatusCode := httptest.NewRecorder().Code
-	statusCode, body := controllers.PostRequest(signerMock, getAPIToken, apiAddSignerPath)
+	statusCode, body := controllers.PostRequest(signerMockNotParameterName, getAPIToken, apiAddSignerPath)
 
-	fmt.Println(string(body))
-	assert.Equal(t, statusCode, responseRecorderStatusCode)
+	assert.Equal(t, statusCode, statusBadRequest)
 	assert.Equal(t, mockResponseErrorNotParameterName, string(body))
 
 }

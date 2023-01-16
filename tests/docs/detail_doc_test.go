@@ -14,6 +14,5 @@ func TestShouldHaveStatus200WhenWantDetailsOfDocument(t *testing.T) {
 
 	responseRecorderStatusCode := httptest.NewRecorder().Code
 	statusCodeRequest, _ := controllers.GetRequest(apiDetailDocumentPath)
-
 	assert.Equal(t, statusCodeRequest, responseRecorderStatusCode)
 }

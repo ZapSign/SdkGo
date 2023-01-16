@@ -18,7 +18,7 @@ func TestShouldStatus200WhenUpdateSignerFromDoc(t *testing.T) {
 		Lock_email:    true,
 		Lock_phone:    true,
 		Phone_country: "55",
-		Name:          "Felipe Doe",
+		Name:          "Felipe S",
 		Email:         "test@test.com",
 	}
 	responseRecorderStatusCode := httptest.NewRecorder().Code

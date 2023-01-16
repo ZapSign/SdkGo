@@ -15,7 +15,7 @@ func TestShouldStatus200AddSignerFromDoc(t *testing.T) {
 	var getAPIToken = utils.GetApiToken()
 
 	signerMock := models.Signer{
-		Name:                    "Novinho",
+		Name:                    "Felipe Melo",
 		Email:                   "email@test.com",
 		Lock_email:              true,
 		Lock_phone:              true,
