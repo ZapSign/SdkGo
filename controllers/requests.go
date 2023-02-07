@@ -31,7 +31,6 @@ func GetRequest(apiRoute string) (int, string) {
 }
 func PostRequest(docMock interface{}, apiToken string, apiRoute string) (int, string) {
 	payload := utils.ConvertObjectToJSON(docMock)
-	fmt.Println(payload)
 
 	request, error := http.NewRequest(http.MethodPost, apiRoute, strings.NewReader(payload))
 
