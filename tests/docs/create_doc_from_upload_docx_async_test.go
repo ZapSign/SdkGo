@@ -14,27 +14,8 @@ func TestShouldStatus200WhenCreateDocumentWithDocxFileAsync(t *testing.T) {
 	var apiDocsRoutePath = utils.GetDocsRoute() + "async/"
 	var getAPIToken = utils.GetApiToken()
 
-	signersMock := []models.Signer{
-		{
-			Name:                    "João Carlos",
-			Email:                   "test@test.com",
-			Auth_mode:               "assinaturaTela",
-			Send_automatic_email:    false,
-			Send_automatic_whatsapp: true,
-		},
-		{
-			Name: "Siclano Almeida",
-		},
-	}
-
-	docMock := models.Doc{
-		Sandbox:             true,
-		Name:                "Golang Example",
-		Url_pdf:             "https://zapsign.s3.amazonaws.com/2022/1/docs/d7660fd2-fe74-4691-bec8-5c42c0ae2b3f/39a35070-8987-476d-86e3-75d91f588a5a.docx",
-		Brand_primary_color: "#000000",
-		Lang:                "pt-br",
-		Signers:             signersMock,
-	}
+	signersMock := models.Signer.CreateSigner(models.Signer{})
+	docMock := models.Doc.CreateDoc(models.Doc{}, signersMock)
 
 	responseRecorderStatusCode := httptest.NewRecorder()
 	statusCodeRequest, _ := controllers.PostRequest(docMock, getAPIToken, apiDocsRoutePath)
