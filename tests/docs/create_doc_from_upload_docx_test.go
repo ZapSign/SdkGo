@@ -14,18 +14,7 @@ func TestShouldStatus200WhenCreateDocumentWithDocxFile(t *testing.T) {
 	var apiDocsRoutePath = utils.GetDocsRoute()
 	var getAPIToken = utils.GetApiToken()
 
-	signersMock := []models.Signer{
-		{
-			Name:                    "João Carlos",
-			Email:                   "test@test.com",
-			Auth_mode:               "assinaturaTela",
-			Send_automatic_email:    false,
-			Send_automatic_whatsapp: true,
-		},
-		{
-			Name: "Siclano Almeida",
-		},
-	}
+	signersMock := models.Signer.CreateSigners(models.Signer{})
 
 	docMock := models.Doc{
 		Sandbox:             true,

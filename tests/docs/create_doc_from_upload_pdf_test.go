@@ -14,7 +14,7 @@ func TestShouldStatus200WhenCreateDocumentWithPdfFile(t *testing.T) {
 	var docsRoutePath = utils.GetDocsRoute()
 	var getAPIToken = utils.GetApiToken()
 
-	signersMock := models.Signer.CreateSigner(models.Signer{})
+	signersMock := models.Signer.CreateSigners(models.Signer{})
 
 	docMock := models.Doc.CreateDocWithUrlPdf(models.Doc{}, signersMock)
 

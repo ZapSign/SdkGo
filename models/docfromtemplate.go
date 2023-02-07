@@ -18,3 +18,16 @@ type DocFromTemplate struct {
 	Template_id               string           `json:"template_id"`
 	Deparafromtemplate        []DeParaTemplate `json:"data"`
 }
+
+func (docFromTemplate DocFromTemplate) CreateDocFromTemplate(deParaTemplateMock []DeParaTemplate) DocFromTemplate {
+	return DocFromTemplate{
+		Sandbox:             true,
+		Template_id:         "aea8a7f9-5591-4a3e-b243-38926c2b2e00",
+		Signer_name:         "João dos Santos",
+		External_id:         "123",
+		Brand_primary_color: "#000000",
+		Lang:                "pt-br",
+		Deparafromtemplate:  deParaTemplateMock,
+	}
+
+}

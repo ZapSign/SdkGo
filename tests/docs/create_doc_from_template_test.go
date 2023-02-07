@@ -14,29 +14,8 @@ func TestShouldStatus200WhenCreateDocumentFromTemplate(t *testing.T) {
 	var apiCreateTemplatePath = utils.GetApiRoute() + "models/create-doc/"
 	var getAPIToken = utils.GetApiToken()
 
-	deParaTemplateMock := []models.DeParaTemplate{
-		{
-			De:   "{{EMAIL CLIENTE}}",
-			Para: "cliente@gmail.com",
-		},
-		{
-			De:   "{{NOME COMPLETO}}",
-			Para: "João dos Santos",
-		},
-		{
-			De:   "{{NÚMERO DO CPF}}",
-			Para: "123.456.789-10",
-		},
-	}
-	docFromTemplateMock := models.DocFromTemplate{
-		Sandbox:             true,
-		Template_id:         "aea8a7f9-5591-4a3e-b243-38926c2b2e00",
-		Signer_name:         "João dos Santos",
-		External_id:         "123",
-		Brand_primary_color: "#000000",
-		Lang:                "pt-br",
-		Deparafromtemplate:  deParaTemplateMock,
-	}
+	deParaTemplateMock := models.DeParaTemplate.CreateDeParaTemplate(models.DeParaTemplate{})
+	docFromTemplateMock := models.DocFromTemplate.CreateDocFromTemplate(models.DocFromTemplate{}, deParaTemplateMock)
 
 	statusCodeRequest, _ := controllers.PostRequest(docFromTemplateMock, getAPIToken, apiCreateTemplatePath)
 	responseRecorderStatusCode := httptest.NewRecorder().Code

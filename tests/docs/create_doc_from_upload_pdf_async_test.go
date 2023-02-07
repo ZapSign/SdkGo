@@ -15,7 +15,7 @@ func TestShouldStatus200WhenCreateDocumentWithPdfFileAsync(t *testing.T) {
 	var docsRoutePath = fmt.Sprintf("%s%s", utils.GetDocsRoute(), "async/")
 	var getAPIToken = utils.GetApiToken()
 
-	fakeSignersMock := models.Signer.CreateSigner(models.Signer{})
+	fakeSignersMock := models.Signer.CreateSigners(models.Signer{})
 	docWithUrlPdfMock := models.Doc.CreateDocWithUrlPdf(models.Doc{}, fakeSignersMock)
 
 	responseRecorderStatusCode := httptest.NewRecorder().Code

@@ -12,7 +12,7 @@ type Signer struct {
 	Send_automatic_whatsapp bool   `json:"send_automatic_whatsapp"`
 }
 
-func (signer Signer) CreateSigner() []Signer {
+func (signer Signer) CreateSigners() []Signer {
 	var fakeSigners = []Signer{
 		{
 			Name:                    "John Doe",
@@ -27,4 +27,25 @@ func (signer Signer) CreateSigner() []Signer {
 	}
 
 	return fakeSigners
+}
+
+func (signer Signer) CreateSigner() Signer {
+	return Signer{
+		Name:                    "Felipe Melo",
+		Email:                   "email@test.com",
+		Lock_email:              true,
+		Lock_phone:              true,
+		Phone_country:           "55",
+		Phone_number:            "99999999999",
+		Auth_mode:               "assinaturaTela",
+		Send_automatic_email:    false,
+		Send_automatic_whatsapp: false,
+	}
+
+}
+func (signer Signer) CreateSignerNothingNameParameter() Signer {
+	return Signer{
+		Email: "test@test.com",
+	}
+
 }
