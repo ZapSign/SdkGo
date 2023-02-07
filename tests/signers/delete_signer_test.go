@@ -1,7 +1,6 @@
 package tests
 
 import (
-	"fmt"
 	"net/http/httptest"
 	"testing"
 
@@ -20,6 +19,5 @@ func TestShouldStatus200WhenRemoveSignerFromDoc(t *testing.T) {
 	statusCode, body := controllers.DeleteRequest(getAPIToken, apiDeleteSignerPath)
 
 	assert.Equal(t, statusCode, responseRecorderStatusCode)
-	fmt.Println(body)
 	assert.Equal(t, mockResponse, string(body))
 }
