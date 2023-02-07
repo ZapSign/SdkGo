@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cc9ae7b6-8b75-4dce-aeda-ba7fbb03f733" name="Changes" comment="" />
+    <list default="true" id="1bc53255-c7a1-4e80-a0a5-e5debe8ef64c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,7 +14,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="2KQ73tZtui91GegkScL9ZH34EjH" />
+  <component name="ProjectId" id="2KY9EXb4k0fi8vNT15pAR3aziRc" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -20,19 +24,24 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/felipe/Zapsign/web",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="cc9ae7b6-8b75-4dce-aeda-ba7fbb03f733" name="Changes" comment="" />
-      <created>1673894759022</created>
+      <changelist id="1bc53255-c7a1-4e80-a0a5-e5debe8ef64c" name="Changes" comment="" />
+      <created>1674140540392</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1673894759022</updated>
-      <workItem from="1673894761336" duration="2000" />
+      <updated>1674140540392</updated>
+      <workItem from="1674140542778" duration="10000" />
+      <workItem from="1674240196668" duration="10000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>

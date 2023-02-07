@@ -12,13 +12,12 @@ import (
 
 func GetRequest(apiRoute string) (int, string) {
 	request, errorRequest := http.NewRequest(http.MethodGet, apiRoute, nil)
-
 	if errorRequest != nil {
 		log.Fatalln(errorRequest)
 	}
 
 	utils.AddQueryParamsToRequest(request)
-	fmt.Print(request.URL.String())
+	fmt.Println(request.URL.String())
 
 	client := &http.Client{}
 	resp, err := client.Do(request)
@@ -32,6 +31,7 @@ func GetRequest(apiRoute string) (int, string) {
 }
 func PostRequest(docMock interface{}, apiToken string, apiRoute string) (int, string) {
 	payload := utils.ConvertObjectToJSON(docMock)
+	fmt.Println(payload)
 
 	request, error := http.NewRequest(http.MethodPost, apiRoute, strings.NewReader(payload))
 
@@ -41,6 +41,7 @@ func PostRequest(docMock interface{}, apiToken string, apiRoute string) (int, st
 
 	utils.AddHeadersFromRequest(request)
 	utils.AddQueryParamsToRequest(request)
+	fmt.Println(request.URL.String())
 
 	client := &http.Client{}
 	resp, err := client.Do(request)

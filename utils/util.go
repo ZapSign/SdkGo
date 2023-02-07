@@ -14,29 +14,29 @@ func ConvertObjectToJSON(dockTemplate interface{}) string {
 }
 
 func GetApiToken() string {
-	return "ac3bfbdf-8588-480f-b7a9-c2f7e0f010f7dbd4edff-f7b5-4f42-b923-4daccc775a59"
+	return "f452fca2-7c4c-47bd-99e4-ab4dcf28bb3590b0cf7b-47c7-416d-b545-aa7ce47ade44"
 }
 
 func GetApiRoute() string {
-	return "https://sandbox.api.zapsign.com.br/api/v1/"
+	return "https://api.zapsign.com.br/api/v1/"
 }
 
 func GetSignerToken() string {
-	return "7a319e9b-9579-47b0-aa67-4234706a07a3"
+	return "1b29bf51-9451-45be-98ac-8ff4474da75c"
 }
 
 func GetDocToken() string {
-	return "token2"
+	return "8222b8d4-ed76-4af0-a8ae-0f056decbee9"
 }
 
 // Use when you want to test a document token for deletion
 func GetDocTokenThatWillBeDeleted() string {
-	return "token976"
+	return "961af6de-eb11-4480-942d-d0cf3cc678ce"
 }
 
 // Use when you want to test a signer token for deletion
 func GetSignerTokenThatWillBeDeleted() string {
-	return "464f0544-279a-48d4-96d5-e78a1394f571"
+	return "d6417bd5-92e6-4713-aff1-35ecdcba5c1e"
 }
 
 // Use when you have only one signer on the document and try to delete

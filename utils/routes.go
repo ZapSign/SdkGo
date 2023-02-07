@@ -2,7 +2,7 @@ package utils
 
 import "fmt"
 
-const staticRouteAPI string = "https://sandbox.api.zapsign.com.br/api/v1/"
+const staticRouteAPI string = "https://api.zapsign.com.br/api/v1/"
 
 func GetDocsRoute() string {
 	return fmt.Sprintf("%s%s", staticRouteAPI, "docs/")

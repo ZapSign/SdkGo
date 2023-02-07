@@ -10,8 +10,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestShouldStatus200WhenCreateDocumentFromTemplate(t *testing.T) {
-	var apiCreateTemplatePath = utils.GetApiRoute() + "models/create-doc/"
+func TestShouldStatus200WhenCreateDocumentFromTemplateAsync(t *testing.T) {
+	var apiCreateTemplatePath = utils.GetApiRoute() + "models/create-doc/async/"
 	var getAPIToken = utils.GetApiToken()
 
 	deParaTemplateMock := []models.DeParaTemplate{
