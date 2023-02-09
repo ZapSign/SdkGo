@@ -31,12 +31,12 @@ func GetDocToken() string {
 
 // Use when you want to test a document token for deletion
 func GetDocTokenThatWillBeDeleted() string {
-	return "961af6de-eb11-4480-942d-d0cf3cc678ce"
+	return "65e8f427-a6e2-4901-848a-29b12deb3e10/"
 }
 
 // Use when you want to test a signer token for deletion
 func GetSignerTokenThatWillBeDeleted() string {
-	return "d6417bd5-92e6-4713-aff1-35ecdcba5c1e"
+	return "495c7250-609f-4a6c-b7c2-0cdd0685866f"
 }
 
 // Use when you have only one signer on the document and try to delete

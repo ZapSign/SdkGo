@@ -13,7 +13,7 @@ func TestShouldHaveStatus200WhenWantDeleteDoc(t *testing.T) {
 	var apiDeleteDocumentPath = utils.GetDocsRoute() + utils.GetDocTokenThatWillBeDeleted()
 
 	responseRecorderStatusCode := httptest.NewRecorder().Code
-	statusCodeRequest, _ := controllers.GetRequest(apiDeleteDocumentPath)
+	statusCodeRequest, _ := controllers.DeleteRequest(apiDeleteDocumentPath)
 
 	assert.Equal(t, statusCodeRequest, responseRecorderStatusCode)
 }

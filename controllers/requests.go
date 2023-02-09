@@ -55,7 +55,7 @@ func PostRequest(docMock interface{}, apiToken string, apiRoute string) (int, st
 	return statusCode, body
 }
 
-func DeleteRequest(apiToken string, apiRoute string) (int, string) {
+func DeleteRequest(apiRoute string) (int, string) {
 	request, errorRequest := http.NewRequest(http.MethodDelete, apiRoute, nil)
 	utils.AddQueryParamsToRequest(request)
 
