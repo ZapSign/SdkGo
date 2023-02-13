@@ -57,11 +57,13 @@ func PostRequest(docMock interface{}, apiToken string, apiRoute string) (int, st
 
 func DeleteRequest(apiRoute string) (int, string) {
 	request, errorRequest := http.NewRequest(http.MethodDelete, apiRoute, nil)
+
 	utils.AddQueryParamsToRequest(request)
 
 	if errorRequest != nil {
 		log.Fatalln(errorRequest)
 	}
+
 	client := &http.Client{}
 	resp, err := client.Do(request)
 	if err != nil {

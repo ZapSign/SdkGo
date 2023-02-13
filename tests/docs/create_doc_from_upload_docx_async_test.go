@@ -1,6 +1,7 @@
 package tests
 
 import (
+	"fmt"
 	"net/http/httptest"
 	"testing"
 
@@ -16,17 +17,10 @@ func TestShouldStatus200WhenCreateDocumentWithDocxFileAsync(t *testing.T) {
 
 	signersMock := models.Signer.CreateSigners(models.Signer{})
 
-	docMock := models.Doc{
-		Sandbox:             true,
-		Name:                "Golang Example",
-		Url_pdf:             "https://zapsign.s3.amazonaws.com/2022/1/docs/d7660fd2-fe74-4691-bec8-5c42c0ae2b3f/39a35070-8987-476d-86e3-75d91f588a5a.docx",
-		Brand_primary_color: "#000000",
-		Lang:                "pt-br",
-		Signers:             signersMock,
-	}
+	docMock := models.Doc.CreateDocWithDocPdf(models.Doc{}, signersMock)
 
 	responseRecorderStatusCode := httptest.NewRecorder()
-	statusCodeRequest, _ := controllers.PostRequest(docMock, getAPIToken, apiDocsRoutePath)
-
+	statusCodeRequest, body := controllers.PostRequest(docMock, getAPIToken, apiDocsRoutePath)
+	fmt.Println(body)
 	assert.Equal(t, statusCodeRequest, responseRecorderStatusCode.Code)
 }

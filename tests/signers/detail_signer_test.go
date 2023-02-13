@@ -1,6 +1,7 @@
 package tests
 
 import (
+	"fmt"
 	"net/http/httptest"
 	"testing"
 
@@ -13,6 +14,7 @@ func TestShouldStatus200WhenDetailSignerFromDoc(t *testing.T) {
 	var apiDetailSignerPath = utils.GetSignersRoute() + utils.GetSignerToken()
 
 	responseRecorderStatusCode := httptest.NewRecorder().Code
-	statusCode, _ := controllers.GetRequest(apiDetailSignerPath)
+	statusCode, body := controllers.GetRequest(apiDetailSignerPath)
+	fmt.Println(body)
 	assert.Equal(t, statusCode, responseRecorderStatusCode)
 }
