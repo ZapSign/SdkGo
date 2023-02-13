@@ -11,3 +11,44 @@ type Signer struct {
 	Send_automatic_email    bool   `json:"send_automatic_email"`
 	Send_automatic_whatsapp bool   `json:"send_automatic_whatsapp"`
 }
+<<<<<<< HEAD
+=======
+
+func (signer Signer) CreateSigners() []Signer {
+	var fakeSigners = []Signer{
+		{
+			Name:                    "John Doe",
+			Email:                   "test@test.com",
+			Auth_mode:               "assinaturaTela",
+			Send_automatic_email:    false,
+			Send_automatic_whatsapp: true,
+		},
+		{
+			Name: "Jane Doe",
+		},
+	}
+
+	return fakeSigners
+}
+
+func (signer Signer) CreateSigner() Signer {
+	return Signer{
+		Name:                    "Felipe Melo",
+		Email:                   "email@test.com",
+		Lock_email:              true,
+		Lock_phone:              true,
+		Phone_country:           "55",
+		Phone_number:            "99999999999",
+		Auth_mode:               "assinaturaTela",
+		Send_automatic_email:    false,
+		Send_automatic_whatsapp: false,
+	}
+
+}
+func (signer Signer) CreateSignerNothingNameParameter() Signer {
+	return Signer{
+		Email: "test@test.com",
+	}
+
+}
+>>>>>>> homolog
